@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: #252525;
+    position: relative;
+}
+
+.header {
+    height: 3rem;
+    display: grid;
+    place-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 2.5rem;
+}
+
+.logo p{
+    color: #ff2770;
+    font-weight: 700;
+}
+
+.logo p span {
+    color: #45f3ff;
+    font-weight: 300;
+}
+
+h3 {
+    color: #fff;
+    font-weight: 400;
+    margin-top: 2rem;
+    text-align: center;
+    background: linear-gradient(45deg, 
+         #45f3ff 0%, #ff2770 60%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* box */
+.container {
+    width: 100%;
+    min-height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: repeating-conic-gradient(from var(--a),
+        #ff2770 0%, #ff2770 5%,
+        transparent 5%, transparent 40%,
+        #ff2770 50%);
+    animation: animate 4s linear infinite;
+    border-radius: 1.25rem;
+}
+
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes animate {
+    0% {
+        --a: 0deg;
+    }
+    100% {
+        --a: 360deg;
+    }
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a),
+        #45f3ff 0%, #45f3ff 5%,
+        transparent 5%, transparent 40%,
+        #45f3ff 50%);
+    animation: animate 4s linear infinite;
+    animation-delay: -1s;
+    border-radius: 1.25rem;
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    inset: 0.25rem;
+    background: #2d2d39;
+    border-radius: 1rem;
+    border: 0.25rem solid #25252b;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding-block: 1rem;
+    border-top: 1px solid #333;
+}
+
+.footer__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+footer p {
+    color: #45f3ff;
+    font-size: 0.75rem;
+}
+
+footer p a {
+    color: #ff2770;
+}
